@@ -1,0 +1,328 @@
+/*
+  # Add products for all categories
+
+  1. Changes
+    - Insert sample products for each category
+    - Match frontend category structure
+*/
+
+-- Insert products for each category
+INSERT INTO public.products (
+  name,
+  slug,
+  description,
+  price,
+  "originalPrice",
+  discount,
+  stock,
+  rating,
+  "reviewCount",
+  "imageUrl",
+  brand,
+  "categoryId",
+  tags,
+  created_at
+) VALUES
+-- Stockage Interne (1-1: HDD, 1-2: SSD)
+(
+  'Seagate BarraCuda 2TB HDD',
+  'seagate-barracuda-2tb-hdd',
+  'Disque dur interne 3.5" 7200 RPM avec cache 256Mo pour PC de bureau',
+  599,
+  799,
+  25,
+  30,
+  4.5,
+  89,
+  'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg',
+  'Seagate',
+  '1-1',
+  ARRAY['bestseller'],
+  NOW()
+),
+(
+  'Kingston KC3000 1TB NVMe SSD',
+  'kingston-kc3000-1tb-nvme-ssd',
+  'SSD NVMe PCIe 4.0 avec des vitesses allant jusqu''à 7000 MB/s',
+  899,
+  1099,
+  18,
+  25,
+  4.7,
+  45,
+  'https://images.pexels.com/photos/5961216/pexels-photo-5961216.jpeg',
+  'Kingston',
+  '1-2',
+  ARRAY['new'],
+  NOW()
+),
+
+-- Stockage Externe (2-1: HDD, 2-2: SSD, 2-3: USB)
+(
+  'Toshiba Canvio Basics 4TB',
+  'toshiba-canvio-basics-4tb',
+  'Disque dur externe portable USB 3.0',
+  799,
+  999,
+  20,
+  40,
+  4.4,
+  123,
+  'https://images.pexels.com/photos/7232455/pexels-photo-7232455.jpeg',
+  'Toshiba',
+  '2-1',
+  ARRAY['featured'],
+  NOW()
+),
+(
+  'Samsung T7 Shield 2TB',
+  'samsung-t7-shield-2tb',
+  'SSD externe robuste IP65 avec USB 3.2 Gen 2',
+  1599,
+  1899,
+  16,
+  15,
+  4.8,
+  67,
+  'https://images.pexels.com/photos/5969/wood-pc-computer-writing.jpg',
+  'Samsung',
+  '2-2',
+  ARRAY['new', 'featured'],
+  NOW()
+),
+(
+  'SanDisk Ultra Fit 128GB',
+  'sandisk-ultra-fit-128gb',
+  'Clé USB 3.1 compacte avec vitesse jusqu''à 130MB/s',
+  129,
+  179,
+  28,
+  100,
+  4.3,
+  234,
+  'https://images.pexels.com/photos/6069556/pexels-photo-6069556.jpeg',
+  'SanDisk',
+  '2-3',
+  ARRAY['bestseller'],
+  NOW()
+),
+
+-- Cartes Mémoire (3-1: SD, 3-2: MicroSD)
+(
+  'SanDisk Extreme PRO SDXC 256GB',
+  'sandisk-extreme-pro-sdxc-256gb',
+  'Carte SD UHS-I avec vitesse jusqu''à 170MB/s',
+  449,
+  599,
+  25,
+  50,
+  4.7,
+  156,
+  'https://images.pexels.com/photos/6069556/pexels-photo-6069556.jpeg',
+  'SanDisk',
+  '3-1',
+  ARRAY['featured'],
+  NOW()
+),
+(
+  'Samsung EVO Plus microSDXC 512GB',
+  'samsung-evo-plus-microsdxc-512gb',
+  'Carte microSD avec adaptateur SD inclus',
+  599,
+  799,
+  25,
+  35,
+  4.6,
+  189,
+  'https://images.pexels.com/photos/6069556/pexels-photo-6069556.jpeg',
+  'Samsung',
+  '3-2',
+  ARRAY['bestseller'],
+  NOW()
+),
+
+-- NAS & Stockage Réseau (4-1, 4-2, 4-3)
+(
+  'Synology DS220+ NAS',
+  'synology-ds220-plus-nas',
+  'NAS 2 baies pour particuliers avec processeur Intel',
+  2499,
+  2799,
+  11,
+  10,
+  4.8,
+  45,
+  'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg',
+  'Synology',
+  '4-1',
+  ARRAY['featured'],
+  NOW()
+),
+(
+  'QNAP TS-453D-4G',
+  'qnap-ts-453d-4g',
+  'NAS 4 baies professionnel avec Intel Celeron',
+  4999,
+  5499,
+  9,
+  5,
+  4.7,
+  23,
+  'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg',
+  'QNAP',
+  '4-2',
+  ARRAY['new'],
+  NOW()
+),
+(
+  'WD Red Plus 6TB NAS HDD',
+  'wd-red-plus-6tb-nas-hdd',
+  'Disque dur spécial NAS avec technologie NASware 3.0',
+  1599,
+  1899,
+  16,
+  20,
+  4.6,
+  78,
+  'https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg',
+  'Western Digital',
+  '4-3',
+  ARRAY['bestseller'],
+  NOW()
+),
+
+-- Mémoire Vive RAM (5-1, 5-2)
+(
+  'Corsair Vengeance LPX 32GB',
+  'corsair-vengeance-lpx-32gb',
+  'Kit RAM DDR4 2x16GB 3200MHz pour PC',
+  899,
+  1099,
+  18,
+  25,
+  4.8,
+  134,
+  'https://images.pexels.com/photos/163125/board-printed-circuit-board-computer-163125.jpeg',
+  'Corsair',
+  '5-1',
+  ARRAY['featured'],
+  NOW()
+),
+(
+  'Crucial 16GB DDR4 SODIMM',
+  'crucial-16gb-ddr4-sodimm',
+  'RAM pour ordinateur portable 3200MHz',
+  399,
+  499,
+  20,
+  40,
+  4.5,
+  89,
+  'https://images.pexels.com/photos/163125/board-printed-circuit-board-computer-163125.jpeg',
+  'Crucial',
+  '5-2',
+  ARRAY['bestseller'],
+  NOW()
+),
+
+-- Accessoires (6-1, 6-2)
+(
+  'ORICO Boîtier USB 3.0',
+  'orico-boitier-usb-3',
+  'Boîtier externe pour disque dur 2.5"',
+  149,
+  199,
+  25,
+  50,
+  4.4,
+  167,
+  'https://images.pexels.com/photos/5969/wood-pc-computer-writing.jpg',
+  'ORICO',
+  '6-1',
+  ARRAY['bestseller'],
+  NOW()
+),
+(
+  'Cable Matters Câble SATA',
+  'cable-matters-cable-sata',
+  'Lot de 3 câbles SATA III 6Gbps',
+  79,
+  99,
+  20,
+  100,
+  4.3,
+  234,
+  'https://images.pexels.com/photos/5969/wood-pc-computer-writing.jpg',
+  'Cable Matters',
+  '6-2',
+  ARRAY['featured'],
+  NOW()
+),
+
+-- Solutions Entreprise (7-1, 7-2)
+(
+  'Seagate Exos X18 16TB',
+  'seagate-exos-x18-16tb',
+  'Disque dur entreprise SATA 6Gb/s 7200 RPM',
+  3999,
+  4499,
+  11,
+  8,
+  4.9,
+  12,
+  'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg',
+  'Seagate',
+  '7-1',
+  ARRAY['new'],
+  NOW()
+),
+(
+  'Intel DC P4510 2TB',
+  'intel-dc-p4510-2tb',
+  'SSD NVMe PCIe pour serveur',
+  2999,
+  3499,
+  14,
+  10,
+  4.8,
+  15,
+  'https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg',
+  'Intel',
+  '7-2',
+  ARRAY['featured'],
+  NOW()
+),
+
+-- Promos & Reconditionnés (8-1, 8-2)
+(
+  'WD Blue 1TB Recertifié',
+  'wd-blue-1tb-recertifie',
+  'Disque dur reconditionné avec garantie 1 an',
+  299,
+  499,
+  40,
+  15,
+  4.2,
+  45,
+  'https://images.pexels.com/photos/3943903/pexels-photo-3943903.jpeg',
+  'Western Digital',
+  '8-2',
+  ARRAY['promo'],
+  NOW()
+),
+(
+  'Crucial BX500 480GB Promo',
+  'crucial-bx500-480gb-promo',
+  'SSD SATA III en promotion spéciale',
+  349,
+  599,
+  42,
+  30,
+  4.4,
+  78,
+  'https://images.pexels.com/photos/3943903/pexels-photo-3943903.jpeg',
+  'Crucial',
+  '8-1',
+  ARRAY['promo'],
+  NOW()
+);
