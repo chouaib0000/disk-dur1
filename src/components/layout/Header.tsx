@@ -44,7 +44,7 @@ const Header = () => {
       }`}
     >
       <Container>
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14">
           <div className="flex items-center">
             <Link to="/" className="mr-6">
               <Logo />
@@ -61,11 +61,11 @@ const Header = () => {
                 onMouseLeave={() => !isMobile && setActiveDropdown(null)}
               >
                 <button
-                  className="flex items-center px-3 py-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors"
+                  className="flex items-center px-2 py-1.5 text-sm text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors"
                   onClick={() => handleDropdownToggle(category.id)}
                 >
                   <span className="whitespace-nowrap">{category.name}</span>
-                  <ChevronDown size={16} className="ml-1" />
+                  <ChevronDown size={14} className="ml-1" />
                 </button>
                 
                 {activeDropdown === category.id && (
@@ -85,9 +85,9 @@ const Header = () => {
                 )}
               </div>
             ))}
-            <Link 
-              to="/recuperation-donnees" 
-              className="px-3 py-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors font-medium whitespace-nowrap"
+            <Link
+              to="/recuperation-donnees"
+              className="px-2 py-1.5 text-sm text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-md transition-colors font-medium whitespace-nowrap"
             >
               Récupération de Données
             </Link>
@@ -95,30 +95,30 @@ const Header = () => {
 
           <div className="flex items-center space-x-1 md:space-x-3">
             {!isTablet && (
-              <Link 
-                to="/recherche" 
-                className="p-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors"
+              <Link
+                to="/recherche"
+                className="p-1.5 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors"
                 aria-label="Rechercher"
               >
-                <Search size={20} />
+                <Search size={18} />
               </Link>
             )}
-            <Link 
-              to="/panier" 
-              className="p-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors relative"
+            <Link
+              to="/panier"
+              className="p-1.5 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors relative"
               aria-label="Panier"
             >
-              <ShoppingCart size={20} />
-              <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              <ShoppingCart size={18} />
+              <span className="absolute -top-0.5 -right-0.5 bg-orange-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center font-medium">
                 0
               </span>
             </Link>
             <button
-              className="lg:hidden p-2 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors"
+              className="lg:hidden p-1.5 text-gray-700 hover:text-blue-700 hover:bg-blue-50 rounded-full transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Menu"
             >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
